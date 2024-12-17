@@ -79,7 +79,8 @@ cd ~/Downloads
 ```
 Clone the rtl-sdr repo
 ```
-git clone git://git.osmocom.org/rtl-sdr.git ```
+git clone git://git.osmocom.org/rtl-sdr.git
+```
 
 ```
 cd rtl-sdr
@@ -138,18 +139,16 @@ make
 
 This should take a good long while and return a lot of green lines of BUILDING CXX objects
 
-Now go up one level to the SDRPlusPlus-master directory
+Now go up one level to the SDRPlusPlus directory
 
 ```
 cd ..
 ```
 
-
 Now run 
 ```
 $ sh /home/rob/Downloads/SDRPlusPlus-master/create-root.sh
 ```
-
 
 Now go back down into build at ~/Downloads/SDRPlusPlus-master/build and run
 
@@ -157,9 +156,7 @@ Now go back down into build at ~/Downloads/SDRPlusPlus-master/build and run
 sudo make install
 ```
 
-
 That’s it!
 Launching SDR++
 You should now see SDR++ in the “Other” category of the GUI. Launch it! or from the CLI type 
 $ sdrpp
-
