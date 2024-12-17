@@ -49,7 +49,7 @@ and paste in the contents of the file jopohl has created at https://github.com/j
 
 To prevent the need for rebooting, run this after adding the rule(s).
 ```
-sudo udevadm control --reload-rules
+sudo udevadm control --reload-rules && udevadm trigger
 ```
 
 Now unplug your SDR (if connected) and reattach it.
