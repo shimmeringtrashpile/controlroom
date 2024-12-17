@@ -32,12 +32,12 @@ Now to get the driver we want!
 sudo apt-get install rtl-sdr
 ```
 
-This install the package we need. 
+This installs the package we need. 
 
 ## Adding udev Rules
 udev is the Linux subsystem that supplies your computer with device events. 
-See https://opensource.com/article/18/11/udev
-Reference: https://github.com/jopohl/urh/wiki/SDR-udev-rules
+
+For more info see: https://opensource.com/article/18/11/udev
 
 ### Make a file called 10-rtl-sdr.rules
 
