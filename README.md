@@ -1,4 +1,4 @@
-# SDR++ Installing SDR++ on the RPi 5 Using Raspian Bookworm
+# Installing RTL-SDR and SDR++ on the Raspberry Pi 5 Raspian Bookworm
 
 ## Reference Links
 - SDR++ Nightly Builds: https://github.com/AlexandreRouma/SDRPlusPlus/releases/tag/nightly
