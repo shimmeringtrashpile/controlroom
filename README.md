@@ -1,126 +1,145 @@
-SDR++ Installation on RPi 5
-Nightly Builds: https://github.com/AlexandreRouma/SDRPlusPlus/releases/tag/nightly
-Installing on the Raspberry Pi 5 with Bookworm Debian 64bit
-Reference: https://www.aaronrombaut.com/build-sdr-on-raspberry-pi-5/
+# SDR++ Installing SDR++ on the RPi 5 Using Raspian Bookworm
 
+## Reference Links
+- SDR++ Nightly Builds: https://github.com/AlexandreRouma/SDRPlusPlus/releases/tag/nightly
+- Aaron Rombaut's excellent "Build SDR++ on Raspberry Pi 5": https://www.aaronrombaut.com/build-sdr-on-raspberry-pi-5/
+- NESDR Installation Manual: https://www.nooelec.com/store/downloads/dl/file/id/72/product/0/nesdr_installation_manual_for_ubuntu.pdf
 
-First Install the RTL-SDR Drivers on RPI
-NESDR Installation Manual: https://www.nooelec.com/store/downloads/dl/file/id/72/product/0/nesdr_installation_manual_for_ubuntu.pdf
+## First Install the RTL-SDR Drivers on RPI
+### "Blacklisting" the Default Drivers
+We start by "blacklisting" the default drivers. This is done by creating a new file. 
+```
+sudo vim /etc/modprobe.d/blacklist-dvb.conf
+```
+Add this line to the file
 
-"Blacklisting" the default drivers
-We start by "blacklisting" the default drivers. This is done by creating a new file
-$ sudo vim /etc/modprobe.d/blacklist-dvb.conf
-
-
+```
 blacklist dvb_usb_rt128xxu
+```
 
-save, and close it.
+Next save your file, and close it.
 
-What that does is disallow the default module (driver) to load. Now we need to tell it to load the driver we want. But first, we need to download it onto the computer.
+In case you're curious about what this does. It disallows the default module (driver) to load. 
 
-$ sudo apt-get install rtl-sdr 
+Now to get the driver we want! 
 
-will install the package we need. 
+```
+sudo apt-get install rtl-sdr
+```
 
-This will have the drivers and utilities related to using an SDR.
-Adding udev Rules
+This install the package we need. 
 
+## Adding udev Rules
 udev is the Linux subsystem that supplies your computer with device events. 
 See https://opensource.com/article/18/11/udev
 Reference: https://github.com/jopohl/urh/wiki/SDR-udev-rules
 
-Make a file called 10-rtl-sdr.rules
+### Make a file called 10-rtl-sdr.rules
 
-$ sudo vim /etc/udev/rules.d/10-rtl-sdr.rules
+```
+sudo vim /etc/udev/rules.d/10-rtl-sdr.rules
+```
 
+and paste in the contents of the file jopohl has created at https://github.com/jopohl/urh/wiki/SDR-udev-rules#rtl-sdr
 
-and paste the contents of the file I made called 10-rtl-sdr.rules.txt.
+To prevent the need for rebooting, run this after adding the rule(s).
+```
+sudo udevadm control --reload-rules
+```
 
-I used this link to create: https://github.com/jopohl/urh/wiki/SDR-udev-rules#rtl-sdr
+Now unplug your SDR (if connected) and reattach it.
 
-To prevent the need for rebooting, run 
-$ sudo udevadm control --reload-rules 
-
-after adding the rule(s).
-
-Finally, unplug your SDR (if connected) and reattach it.
-
-Using rtl_test
+## Using rtl_test
 
 You can test by running 
-$ rtl_test 
+```
+rtl_test
+``` 
 
 
-Installing libusb and rtl-sdr drivers
+## Installing libusb and rtl-sdr drivers
 
-$ sudo apt-get install libusb-1.0-0.dev libudev-dev
+```
+sudo apt-get install libusb-1.0-0.dev libudev-dev
+```
 
+I will be using my ~/Downloads directory to hold some of my downloads. You do you.
 
-
-Go to the ~/Downloads directory
-cd 
+```
+cd ~/Downloads
+```
+```
 $ mkdir build
-
-
+```
+```
 $ cd build
+```
 
+You need to install cmake and a bunch of other stuff so go ahead and do that now.
+```
+sudo apt-get install -y cmake libad9361-dev libairspy-dev libairspyhf-dev libfftw3-dev libglfw3-dev libhackrf-dev libiio-dev librtaudio-dev libvolk2-dev libzstd-dev
+```
+Now run cmake
 
-
-You will likely need to install cmake and a bunch of other stuff so go ahead and do that. 
-$ sudo apt-get install -y cmake libad9361-dev libairspy-dev libairspyhf-dev libfftw3-dev libglfw3-dev libhackrf-dev libiio-dev librtaudio-dev libvolk2-dev libzstd-dev
-
-
-$ cmake ../ -DINSTALL_UDEV_RULES=ON
-
-
-$ make
+```
+cmake ../ -DINSTALL_UDEV_RULES=ON
+```
+```
+ make
+```
 
 You should get a bunch of green Building and Linking lines.
 
-Building SDRPlusPlus
+## Getting and Building SDRPlusPlus
 
 In your terminal, go to your ~/Downloads folder. 
 
-Git clone SDRPlusPlus into Downloads.
+Now we'll git clone SDRPlusPlus into Downloads.
+```
+git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
+```
+Change directory into the SDRPlusPlus folder.
+Make a folder called "build."
 
-$ git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
+```
+mkdir build
+```
 
-
-Inside the SDRPlusPlus folder make a folder called build
-
-$ mkdir build
-
-
-In your terminal change directories to ~/Downloads/SDRPlusPlus-master/build and run
-
-Change directory into the build folder
-$ cd build
-
+Now change directories to ~/Downloads/SDRPlusPlus-master/build
+```
+cd build
+```
 
 run
-
+```
 $ cmake ..
-
+```
 
 then
-
-$ make
-
+```
+make
+```
 
 This should take a good long while and return a lot of green lines of BUILDING CXX objects
 
 Now go up one level to the SDRPlusPlus-master directory
 
-$ cd ..
+```
+cd ..
+```
 
 
 Now run 
+```
 $ sh /home/rob/Downloads/SDRPlusPlus-master/create-root.sh
+```
 
 
 Now go back down into build at ~/Downloads/SDRPlusPlus-master/build and run
 
-$ sudo make install
+```
+sudo make install
+```
 
 
 That’s it!
