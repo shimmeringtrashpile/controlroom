@@ -8,6 +8,11 @@
 ## First Install the RTL-SDR Drivers on RPI
 ### "Blacklisting" the Default Drivers
 We start by "blacklisting" the default drivers. This is done by creating a new file. 
+I use vim for file editing. If you do too, you'll need to install vim. I like neovim. Feel free to install whatever text editor you like best
+```
+sudo apt-get install neovim
+```
+OK. Now to create that file.
 ```
 sudo vim /etc/modprobe.d/blacklist-dvb.conf
 ```
