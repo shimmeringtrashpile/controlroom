@@ -68,32 +68,43 @@ rtl_test
 sudo apt-get install libusb-1.0-0.dev libudev-dev
 ```
 
+Next, you need to install cmake and a bunch of other stuff so go ahead and do that now.
+```
+sudo apt-get install -y cmake libad9361-dev libairspy-dev libairspyhf-dev libfftw3-dev libglfw3-dev libhackrf-dev libiio-dev librtaudio-dev libvolk2-dev libzstd-dev
+```
 I will be using my ~/Downloads directory to hold some of my downloads. You do you.
 
 ```
 cd ~/Downloads
 ```
+Clone the rtl-sdr repo
 ```
-$ mkdir build
-```
-```
-$ cd build
-```
-
-You need to install cmake and a bunch of other stuff so go ahead and do that now.
-```
-sudo apt-get install -y cmake libad9361-dev libairspy-dev libairspyhf-dev libfftw3-dev libglfw3-dev libhackrf-dev libiio-dev librtaudio-dev libvolk2-dev libzstd-dev
-```
-Now run cmake
+git clone git://git.osmocom.org/rtl-sdr.git ```
 
 ```
-cmake ../ -DINSTALL_UDEV_RULES=ON
+cd rtl-sdr
 ```
 ```
- make
+mkdir build
+```
+```
+cd build
+```
+```
+cmake ../ -DINSTALL_UDEV_RULES=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_INSTALL_LIBDIR:PATH=lib 
 ```
 
-You should get a bunch of green Building and Linking lines.
+Now run make
+
+```
+make
+```
+Now make install. Note I used sudo here becuase I was getting a permission error "cannot copy file "/home/rob/Downloads/rtl-sdr/rtl-sdr.rules"
+to "/etc/udev/rules.d/rtl-sdr.rules": Permission denied.
+
+```
+sudo make install
+```
 
 ## Getting and Building SDRPlusPlus
 
