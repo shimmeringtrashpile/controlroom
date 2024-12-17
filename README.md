@@ -145,9 +145,9 @@ Now go up one level to the SDRPlusPlus directory
 cd ..
 ```
 
-Now run 
+Now run this using your username
 ```
-$ sh /home/rob/Downloads/SDRPlusPlus-master/create-root.sh
+sh /home/<your username here>/Downloads/SDRPlusPlus/create_root.sh
 ```
 
 Now go back down into build at ~/Downloads/SDRPlusPlus-master/build and run
