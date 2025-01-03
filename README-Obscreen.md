@@ -3,11 +3,11 @@
 Reference: https://docs.obscreen.io/install/studio-server/docker.html
 
 #### Managing the Obscreen "Studio" server
-URL: http://grover:5000/playlist/list/0
+URL: http://localhost:5000/playlist/list/0
 
 #### Playing an Obscreen playlist
 For a playlist called "reference" 
-URL: http://grover:5000/use/reference
+URL: http://localhost:5000/use/reference
 
 #Autostarting Chromium full screen
 Raspian Bookworm will use Wayland as your backend. You will want to switch to X11 or Wayfire to more easily setup autostart features.
