@@ -9,7 +9,7 @@ URL: http://localhost:5000/playlist/list/0
 For a playlist called "reference" 
 URL: http://localhost:5000/use/reference
 
-#Autostarting Chromium full screen
+## Autostarting Chromium full screen
 Raspian Bookworm will use Wayland as your backend. You will want to switch to X11 or Wayfire to more easily setup autostart features.
 
 I used Wayfire so I'll describe that here.
@@ -40,7 +40,7 @@ OK. Now that you have vim, run
 
 ```
 [autostart]
-chromium = sleep 10;chromium-browser --kiosk --noerrdialogs --disable-infobars --ozone-platform=wayland --enable-features=OverlayScrollbar --start-maximized --disk-cache-size=2147483648 --ignore-certificate-errors --disable-web-security --disable-restore-session-state --autoplay-policy=no-user-gesture-required --allow-running-insecure-content --remember-cert-error-decisions --noerrdialogs --single-process
+chromium = sleep 20;chromium-browser --kiosk --noerrdialogs --disable-infobars --ozone-platform=wayland --enable-features=OverlayScrollbar --start-maximized --disk-cache-size=2147483648 --ignore-certificate-errors --disable-web-security --disable-restore-session-state --autoplay-policy=no-user-gesture-required --allow-running-insecure-content --remember-cert-error-decisions --noerrdialogs --single-process --app=http://localhost:5000
 screensaver = false
 dpms = false
 ```
