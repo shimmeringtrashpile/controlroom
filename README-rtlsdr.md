@@ -163,6 +163,8 @@ $ sdrpp
 
 ## Setting the sdr++ Server to Autostart on Boot
 
+You can run sdr++ as a server that other sdr++ clients can connect to. The sdr++ server runs as a terminal application. I have the server set up to autostart every time my raspberry pi boots up. Here's how to do that.
+
 Raspian Bookworm will use Wayland as your backend. You will want to switch to X11 or Wayfire to more easily setup autostart features.
 
 I used Wayfire so I'll describe that here.
