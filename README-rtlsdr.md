@@ -150,7 +150,7 @@ Now run this using your username
 sh /home/<your username here>/Downloads/SDRPlusPlus/create_root.sh
 ```
 
-Now go back down into build at ~/Downloads/SDRPlusPlus-master/build and run
+Now go back down into build at ~/Downloads/SDRPlusPlus/build and run
 
 ```
 sudo make install
@@ -160,3 +160,47 @@ That’s it!
 Launching SDR++
 You should now see SDR++ in the “Other” category of the GUI. Launch it! or from the CLI type 
 $ sdrpp
+
+## Setting the sdr++ Server to Autostart on Boot
+
+Raspian Bookworm will use Wayland as your backend. You will want to switch to X11 or Wayfire to more easily setup autostart features.
+
+I used Wayfire so I'll describe that here.
+
+Use raspi-config to set Wayfire as your default.
+
+From the terminal run
+
+```
+$ sudo raspi-config
+```
+
+Go to: 6 Advanced Options
+
+Go to: A6 Wayland 
+
+and switch to the Wayfire window manager with Wayland backend.
+
+Finish raspi-config and reboot.
+
+### Create a wayfire.ini to setup autostart
+
+I created my wayfire.ini file from the terminal using the vim text editor. 
+
+```
+vim ~/.config/wayfire.ini
+```
+You'll see a bunch of stuff there. Go to the bottom of the file and add sdrpp with the --server switch
+
+The default port is 5259 but you can also use any unused port number you like such as 8080 using the -p <port number> parameter
+
+IP address example: `/usr/bin/sdrpp --server 192.168.2.17`
+
+IP address and port number example: `/usr/bin/sdrpp --server 192.168.2.17 -p 8080`
+
+```
+[autostart]
+/usr/bin/sdrpp --server <add additional options here as needed>
+screensaver = false
+dpms = false
+```
