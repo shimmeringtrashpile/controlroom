@@ -204,7 +204,7 @@ Port number only example: `/usr/bin/sdrpp --server --port 8080`
 
 ```
 [autostart]
-/usr/bin/sdrpp --server <add additional options here as needed>
+sdrpp = /usr/bin/sdrpp --server <add additional options here as needed>
 screensaver = false
 dpms = false
 ```
