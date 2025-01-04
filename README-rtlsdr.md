@@ -194,11 +194,13 @@ vim ~/.config/wayfire.ini
 ```
 You'll see a bunch of stuff there. Go to the bottom of the file and add sdrpp with the --server switch
 
-The default port is 5259 but you can also use any unused port number you like such as 8080 using the -p <port number> parameter
+The default port is 5259 but you can also use any unused port number you like such as 8080.
 
-IP address example: `/usr/bin/sdrpp --server 192.168.2.17`
+IP address example: `/usr/bin/sdrpp --server --addr 192.168.2.17`
 
-IP address and port number example: `/usr/bin/sdrpp --server 192.168.2.17 -p 8080`
+IP address and port number example: `/usr/bin/sdrpp --server --addr 192.168.2.17 --port 8080`
+
+Port number only example: `/usr/bin/sdrpp --server --port 8080`
 
 ```
 [autostart]
