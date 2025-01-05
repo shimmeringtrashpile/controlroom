@@ -47,12 +47,7 @@ sudo vim /etc/udev/rules.d/10-rtl-sdr.rules
 
 and paste in the contents of the file jopohl has created at https://github.com/jopohl/urh/wiki/SDR-udev-rules#rtl-sdr
 
-To prevent the need for rebooting, run this after adding the rule(s).
-```
-sudo udevadm control --reload-rules && udevadm trigger
-```
-
-Now unplug your SDR (if connected) and reattach it.
+Reboot the Raspberry Pi
 
 ## Using rtl_test
 
