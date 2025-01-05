@@ -57,15 +57,11 @@ rtl_test
 ``` 
 
 
-## Installing libusb and rtl-sdr drivers
+## Installing drivers, cmake, etc.
 
+Next, you need to install cmake libusb and rtl-sdr drivers and a bunch of other stuff so go ahead and do that now.
 ```
-sudo apt-get install libusb-1.0-0.dev libudev-dev -y
-```
-
-Next, you need to install cmake and a bunch of other stuff so go ahead and do that now.
-```
-sudo apt-get install -y cmake libad9361-dev libairspy-dev libairspyhf-dev libfftw3-dev libglfw3-dev libhackrf-dev libiio-dev librtaudio-dev libvolk2-dev libzstd-dev
+sudo apt-get install -y cmake libusb-1.0-0.dev libudev-dev libad9361-dev libairspy-dev libairspyhf-dev libfftw3-dev libglfw3-dev libhackrf-dev libiio-dev librtaudio-dev libvolk2-dev libzstd-dev
 ```
 I will be using my ~/Downloads directory to hold some of my downloads. You do you.
 
