@@ -10,7 +10,7 @@
 We start by "blacklisting" the default drivers. This is done by creating a new file. 
 I use vim for file editing. If you do too, you'll need to install vim. I like neovim. Feel free to install whatever text editor you like best
 ```
-sudo apt-get install neovim
+sudo apt-get install neovim -y
 ```
 OK. Now to create that file.
 ```
@@ -29,7 +29,7 @@ In case you're curious about what this does. It disallows the default module (dr
 Now to get the driver we want! 
 
 ```
-sudo apt-get install rtl-sdr
+sudo apt-get install rtl-sdr -y
 ```
 
 This installs the package we need. 
@@ -65,7 +65,7 @@ rtl_test
 ## Installing libusb and rtl-sdr drivers
 
 ```
-sudo apt-get install libusb-1.0-0.dev libudev-dev
+sudo apt-get install libusb-1.0-0.dev libudev-dev -y
 ```
 
 Next, you need to install cmake and a bunch of other stuff so go ahead and do that now.
@@ -110,6 +110,9 @@ sudo make install
 ## Getting and Building SDRPlusPlus
 
 In your terminal, go to your ~/Downloads folder. 
+```
+cd ~/Downloads
+```
 
 Now we'll git clone SDRPlusPlus into Downloads.
 ```
