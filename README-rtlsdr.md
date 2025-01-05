@@ -109,7 +109,12 @@ Now we'll git clone SDRPlusPlus into Downloads.
 ```
 git clone https://github.com/AlexandreRouma/SDRPlusPlus.git
 ```
+
 Change directory into the SDRPlusPlus folder.
+```
+cd ~/Downloads/SDRPlusPlus```
+```
+
 Make a folder called "build."
 
 ```
