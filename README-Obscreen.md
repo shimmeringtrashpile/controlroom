@@ -32,7 +32,7 @@ Alt + F4 will get you out of full screen mode. Note: You may need to hold the Fu
 
 I created my wayfire.ini file from the terminal using the vim text editor. Raspian doesn't come with vim built-in so I had to go get it.
 
-```sudo apt-get install neovim```
+```sudo apt-get install neovim -y```
 
 OK. Now that you have vim, run 
 
