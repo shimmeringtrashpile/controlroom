@@ -209,12 +209,18 @@ dpms = false
 ```
 
 ### Setting the SDR++ Client to Autostart
-You can autostart the SDR++ _client_ using the --autostart parameter.
+You can autostart the SDR++ _client_ using the --autostart parameter. This is equivalent to pushing the play button in the GUI.
 ```
 /usr/bin/sdrpp --autostart
 ```
 
 You could add this to Wayfire's wayfire.ini to bring up the client automatically on boot.
+```
+[autostart]
+sdrpp = /usr/bin/sdrpp --autostaart
+screensaver = false
+dpms = false
+```
 
 There's a few other command line parameters in the manual. In the current version of the manual they are in the section titled "SDR++ command line related parameters."
 
